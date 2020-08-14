@@ -1,0 +1,5 @@
+Tile-matching
+Simulation
+NRPA
+Beam Search
+Flood fill

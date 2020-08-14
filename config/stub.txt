@@ -1,0 +1,12 @@
+gameloop
+loop 15 loopline 15 color:int
+write 3 6 Hello SameGame\\n:-)
+
+STATEMENT
+Remove connected regions of the same color to obtain the best score.
+
+INPUT
+color: Color of the tile
+
+OUTPUT
+Selected tile "x y [message]".

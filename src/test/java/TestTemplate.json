@@ -1,0 +1,9 @@
+{
+	"title": {
+		"2": "%1$s",
+		"1": "%1$s"
+	},
+	"testIn": "%2$s",
+	"isTest": "%3$s",
+	"isValidator": "%4$s"
+}

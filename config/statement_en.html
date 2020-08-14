@@ -1,0 +1,108 @@
+<div id="statement_back" class="statement_back" style="display:none"></div>
+<div class="statement-body">
+    <div style="color:#7cc576;background-color:rgba( 124 , 197 , 118 , 0.1 );padding:20px;margin-right:15px;margin-left:15px;margin-bottom:10px;text-align:left">
+        <span class="statement-league-alert-content">
+            This is a port of the tile-matching puzzle <a href="https://en.wikipedia.org/wiki/SameGame">SameGame</a>. The rules are the same as used for benchmarks in AI publications. Human-playable version is available <a href="http://www.js-games.de/eng/games/samegame/lx/play">here</a>.
+        </span>
+    </div>
+
+    <!-- GOAL -->
+    <div class="statement-section statement-goal">
+        <h1>
+            <span class="icon icon-goal">&nbsp;</span>
+            <span>The Goal</span>
+        </h1>
+        <div class="statement-goal-content">
+            The goal of the game is to maximize your score, which can be achieved by removing as large as possible regions of connected cells of the same color.
+        </div>
+    </div>
+    <!-- RULES -->
+    <div class="statement-section statement-rules">
+        <h1>
+            <span class="icon icon-rules">&nbsp;</span>
+            <span>Rules</span>
+        </h1>
+        <div>
+            <div class="statement-rules-content">
+                SameGame is a puzzle composed of a rectangular grid containing cells of different
+                colors. A move removes connected cells of the same color. The cells of other colors fall
+                to fill the void created by a move down, and when a column is empty
+                the columns on the right are moved to
+                the left. At least two cells have to be removed for a move to
+                be legal. The score of a move is the square of the number of removed cells minus two.
+                A bonus of one thousand is credited for completely clearing the board.
+
+                <div class="blk">
+                    <!--<div class="title">Detailed rules</div>-->
+                    <div class="text">
+                        <br>
+                        <span class="statement-lineno">Detailed rules</span><br/>
+                        <ul>
+                            <li>Game board has 15 rows and 15 columns, with <const>0 0</const> (<var>column</var> <var>row</var>) being the bottom left corner and <const>14 14</const> the upper right corner.</li>
+                            <li>An action consist of choosing a tile on the bord, giving its coordinates (also using <var>column</var> <var>row</var> notation).</li>
+                            <li>An action is legal if the pointed cell has at least one neighbour (in cardinal direction) of the same color.</li>
+                            <li>There are five colors, encoded as integers: <const>0</const>, <const>1</const>, <const>2</const>, <const>3</const>, <const>4</const>, and the empty cells are encoded as <const>-1</const>.</li>
+                            <li>A legal action removes the entire region of the same color connected with the chosen tile.</li>
+                            <li>In every column, all blocks that were above removed cells fall down, so that there is no free space between them and the row 0.</li>
+                            <li>Then, for every empty column, all columns that are on the right are moved maximally to the left, so that the row 0 has no gaps.</li>
+                            <li>Choosing illegal action i.e. pointing out an empty cell or a region of size 1 ends the game with an error.</li>
+                            <li>The game ends naturally when there are no legal actions, i.e. the tile <const>0 0</const> is empty or all remaining regions have size 1.</li>
+                            <li>The score of the game is a cumulative score of each action.</li>
+                            <li>The score of an action removing a region of size <const>n</const> is <const>(n-2)<sup>2</sup></const>.</li>
+                            <li>When the board is cleared (tile <const>0 0</const> is empty), the score is additionally increased by <const>1000</const>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="blk">
+                    <!--<div class="title">Detailed rules</div>-->
+                    <div class="text">
+                        <br>
+                        <span class="statement-lineno">Source code</span><br/>
+                        You can find the source code of the contribution at:
+                        <ul>
+                            <li><a href="https://github.com/acatai/SameGame">https://github.com/acatai/SameGame</a></li>
+                            <li><a href="https://www.codingame.com/contribute/view/52286850570a02e25f12d5b1b9a30bdb954c">Contribution page at CodinGame</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- PROTOCOL -->
+    <div class="statement-section statement-protocol">
+        <h1>
+            <span class="icon icon-protocol">&nbsp;</span>
+            <span>Game Input</span>
+        </h1>
+
+        <!-- Protocol block -->
+        <div class="blk">
+            <div class="title">Input for one game turn
+            </div>
+            <div class="text">
+                <p><span class="statement-lineno">First <const>15</const> lines: </span>rows of the board, top (row <const>14</const>) to bottom (row <const>0</const>). </p>
+                <p><span class="statement-lineno">Each line: </span> a single row consisting of <const>15</const> space-separated integers representing colors of each cell. Possible color values are: <const>0</const>, <const>1</const>, <const>2</const>, <const>3</const>, <const>4</const> and empty cell is <const>-1</const>.</p>
+
+                </div>
+            </div>
+
+            <!-- Protocol block -->
+            <div class="blk">
+                <div class="title">Output for one game turn</div>
+                <div class="text">
+                    <span class="statement-lineno">A single line</span> containing an action: two space-separated integers <var>column</var> <var>row</var> optionally followed by any text printed on-screen as a debug message.
+                    <br><br> Example: <const>0 1 this is optional\\nmessage</const>
+                </div>
+            </div>
+
+            <!-- Protocol block -->
+            <div class="blk">
+                <div class="title">Constraints</div>
+                Response time for first turn ≤ <const>20</const>s<br>
+                Response time for one turn ≤ 50ms
+            </div>
+        </div>
+    </div>
+</div>
